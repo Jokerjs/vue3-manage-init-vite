@@ -1,0 +1,38 @@
+html {
+  body {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: $base-font-size-default;
+    color: #2c3e50;
+    background: #f6f8f9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    #app {
+      width: 100%;
+      height: 100vh;
+    }
+  }
+}
+
+.mg-layout-container {
+  background: $base-color-white;
+  padding: $base-padding-default;
+  border-radius: $base-radius-default;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+.mg-list-form {
+  padding-bottom: $base-padding-default;
+}
+.mg-modal-form {
+  width: 80%;
+  margin: 0 auto;
+}
+.mg-modal-footer{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}

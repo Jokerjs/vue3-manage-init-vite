@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+//框架默认主题色
+$base-color-default: #165dff;
+//默认层级
+$base-z-index: 999;
+//横向布局纵向布局时菜单背景色
+$base-menu-background: #282c34;
+//菜单文字颜色
+$base-menu-color: hsla(0, 0%, 100%, 0.95);
+//菜单选中文字颜色
+$base-menu-color-active: hsla(0, 0%, 100%, 0.95);
+//菜单选中背景色
+$base-menu-background-active: $base-color-default;
+//标题颜色
+$base-title-color: #fff;
+//字体大小配置
+$base-font-size-small: 12px;
+$base-font-size-default: 14px;
+$base-font-size-big: 16px;
+$base-font-size-bigger: 18px;
+$base-font-size-max: 22px;
+$base-font-color: #606266;
+$base-color-blue: $base-color-default;
+$base-color-green: #47ba80;
+$base-color-white: #fff;
+$base-color-black: #000;
+$base-color-yellow: #fac858;
+$base-color-orange: #ff6700;
+$base-color-red: #f34d37;
+$base-color-gray: rgba(0, 0, 0, 0.65);
+$base-main-width: 1279px;
+$base-border-radius: 4px;
+$base-border-color: #dcdfe6;
+
+// padding
+$base-padding-small: 10px;
+$base-padding-default: 15px;
+$base-padding-big: 20px;
+$base-padding-bigger: 25px;
+$base-padding-max: 30px;
+
+// radius
+$base-radius-small: 4px;
+$base-radius-default: 8px;
+$base-radius-big: 12px;
+$base-radius-bigger: 16px;
+$base-radius-max: 20px;
