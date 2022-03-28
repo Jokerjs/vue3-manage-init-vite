@@ -53,7 +53,7 @@ const columns = [
     {title: '操作', dataIndex: 'operation', width: '160px'}
 ]
 
-const {formRef, loading, query, pagination, dialogModel, list, getList, handleEdit, handleDelete} = tableRepositories(api)
+const {loading, query, pagination, dialogModel, list, getList, handleEdit, handleDelete} = tableRepositories(api)
 </script>
 
 <style scoped>

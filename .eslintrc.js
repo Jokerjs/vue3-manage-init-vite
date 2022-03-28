@@ -20,14 +20,8 @@ module.exports = {
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-        'vue/script-setup-uses-vars': 'off',
+        'vue/script-setup-uses-vars': ["error"], // ESLint规则no-unused-vars不检测<script setup>
         'no-useless-escape': 'off',
-        'no-unused-vars': [
-            'error',
-            // we are only using this rule to check for unused arguments since TS
-            // catches unused variables but not args.
-            { varsIgnorePattern: '.*', args: 'none' }
-        ],
         "no-inner-declarations": ["error"], // 禁止在嵌套的块中出现变量声明或 function 声明
         "no-irregular-whitespace": ["error"], // 禁止在字符串和注释之外不规则的空白
         "no-unexpected-multiline": ["error"], // 禁止出现令人困惑的多行表达式

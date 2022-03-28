@@ -65,7 +65,7 @@ const rules = reactive({
 async function handleLogin() {
     loading.value = true
     try {
-        const values = await refForm.value.validateFields()
+        await refForm.value.validateFields()
         await mgStore.dispatch('user/LoginByUsername', form)
         loading.value = false
         mgRouter.push({path: '/Manage'})
