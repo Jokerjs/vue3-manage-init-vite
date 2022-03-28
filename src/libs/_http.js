@@ -1,8 +1,8 @@
 import axios from 'axios'
 import _api from './_api'
-import { notification, Modal } from 'ant-design-vue';
-import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
-import { createVNode } from 'vue';
+import {notification, Modal} from 'ant-design-vue'
+import {ExclamationCircleOutlined} from '@ant-design/icons-vue'
+import {createVNode} from 'vue'
 import store from '@/store'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -10,7 +10,7 @@ import 'nprogress/nprogress.css'
 const _http = axios.create({
     baseURL: _api.apiurl,
     timeout: 30000,
-    headers: { 'Content-Type': 'application/json;charset=utf-8' }
+    headers: {'Content-Type': 'application/json;charset=utf-8'}
 })
 
 // HTTPrequest拦截
@@ -44,12 +44,12 @@ const goLogin = () => {
         title: '重新登录？',
         icon: createVNode(ExclamationCircleOutlined),
         content: '登录过期，请重新登录！',
-        onOk(){
+        onOk() {
             toLogin()
         },
         onCancel() {
             toLogin()
-        },
+        }
     })
 }
 

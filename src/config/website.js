@@ -2,6 +2,7 @@
  * 全局配置文件
  */
 import config from '../../package.json'
+
 export default {
     base_title: document.title || '管理平台',
     copyright: 'Copyright © 2021-2022 希迪克（郑州）智能康复设备有限公司 All Rights Reserved.',

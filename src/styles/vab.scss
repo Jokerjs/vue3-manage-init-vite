@@ -24,14 +24,17 @@ html {
   min-height: 100%;
   box-sizing: border-box;
 }
+
 .mg-list-form {
   padding-bottom: $base-padding-default;
 }
+
 .mg-modal-form {
   width: 80%;
   margin: 0 auto;
 }
-.mg-modal-footer{
+
+.mg-modal-footer {
   width: 80%;
   margin: 0 auto;
   text-align: center;

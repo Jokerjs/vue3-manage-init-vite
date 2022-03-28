@@ -23,25 +23,25 @@
 </template>
 
 <script setup>
-import {MenuFoldOutlined, MenuUnfoldOutlined} from '@ant-design/icons-vue';
+import {MenuFoldOutlined, MenuUnfoldOutlined} from '@ant-design/icons-vue'
 
 const mgStore = useStore()
 const mgRouter = useRouter()
 
-const avatar = computed(() => mgStore.getters['user/avatar']);
-const username = computed(() => mgStore.getters['user/username']);
-const isCollapse = computed(() => mgStore.getters['view/isCollapse']);
+const avatar = computed(() => mgStore.getters['user/avatar'])
+const username = computed(() => mgStore.getters['user/username'])
+const isCollapse = computed(() => mgStore.getters['view/isCollapse'])
 
 function collapsedSider() {
-    mgStore.commit('view/TOGGLE_COLLAPSE');
+    mgStore.commit('view/TOGGLE_COLLAPSE')
 }
 
 function command({key}) {
     switch (key) {
         case 'logout':
-            mgStore.commit('user/USER_INFO_LOGINOUT');
-            mgRouter.push({path: '/login'});
-            break;
+            mgStore.commit('user/USER_INFO_LOGINOUT')
+            mgRouter.push({path: '/login'})
+            break
     }
 }
 </script>

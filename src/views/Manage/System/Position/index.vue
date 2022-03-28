@@ -24,7 +24,7 @@
             :loading="loading"
             @change="getList"
         >
-            <template #bodyCell="{ column, text, record }">
+            <template #bodyCell="{ column, record }">
                 <a-space v-if="column.dataIndex === 'operation'">
                     <a-button type="primary" @click="handleEdit(record)">修改</a-button>
                     <a-button type="primary" @click="handleDelete(record)" ghost>删除</a-button>
@@ -32,40 +32,28 @@
             </template>
         </a-table>
 
-        <edit-modal v-model:formData="dialogModel.formData" v-model:dialogFormVisible="dialogModel.dialogFormVisible" @onSubmit="getList(query)" />
+        <edit-modal v-model:formData="dialogModel.formData" v-model:dialogFormVisible="dialogModel.dialogFormVisible" @onSubmit="getList(query)"/>
     </div>
 </template>
 
 <script setup>
-import {_api} from '@/libs/';
-import tableRepositories from '@/repositories/tableRepositories';
-import toolUtils from '@/utils/toolUtils';
+import {_api} from '@/libs/'
+import tableRepositories from '@/repositories/tableRepositories'
 import EditModal from './EditModal'
 
 const api = reactive({
     list: `${_api.system.position}/list`,
     delete: `${_api.system.position}/delete`
-});
+})
 
 const columns = [
-    { title: '职务编码', dataIndex: 'code' },
-    { title: '职务名称', dataIndex: 'name' },
-    { title: '创建时间', dataIndex: 'createTime' },
-    { title: '操作', dataIndex: 'operation', width: '160px'},
-];
+    {title: '职务编码', dataIndex: 'code'},
+    {title: '职务名称', dataIndex: 'name'},
+    {title: '创建时间', dataIndex: 'createTime'},
+    {title: '操作', dataIndex: 'operation', width: '160px'}
+]
 
-const roleMenuModel = reactive({
-    formData: {},
-    dialogFormVisible: false
-});
-
-const {loading, query, pagination, dialogModel, list, total, getList, handleEdit, handleDelete} = tableRepositories(api);
-
-// 授权
-async function handleRoleMenu(row) {
-    roleMenuModel.formData = toolUtils.deepcopy(row);
-    roleMenuModel.dialogFormVisible = true;
-}
+const {formRef, loading, query, pagination, dialogModel, list, getList, handleEdit, handleDelete} = tableRepositories(api)
 </script>
 
 <style scoped>

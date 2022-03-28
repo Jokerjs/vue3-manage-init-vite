@@ -12,7 +12,7 @@ export default {
             default: 'zhusheqi'
         }
     },
-    mounted () {
+    mounted() {
 
     }
 }

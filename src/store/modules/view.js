@@ -28,24 +28,24 @@ const view = {
     },
     mutations: {
         SET_BREADCRUMB_DATA(state, to) {
-            const openNames = [];
-            const vMenus = to.fullPath.split('/');
+            const openNames = []
+            const vMenus = to.fullPath.split('/')
             vMenus.forEach((item, index) => {
-                openNames.push(vMenus.slice(index, vMenus.length - 1).join('/'));
-            });
-            state.breadcrumb = to.matched.slice(1);
+                openNames.push(vMenus.slice(index, vMenus.length - 1).join('/'))
+            })
+            state.breadcrumb = to.matched.slice(1)
             state.vMenu = {
                 openNames: openNames,
                 activeName: [to.fullPath]
                 // opened: vMenus.slice(-1).includes('Sleep') ? [] : [vMenus.slice(2, -1).pop()],
                 // list: store.state.user.menus.find(item => item.path === vMenus[2])
-            };
+            }
         },
         TOGGLE_COLLAPSE(state, isCollapse) {
-            state.isCollapse = isCollapse || !state.isCollapse;
+            state.isCollapse = isCollapse || !state.isCollapse
         }
     },
     actions: {}
 
-};
-export default view;
+}
+export default view

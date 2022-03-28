@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-const mgStore = useStore();
+const mgStore = useStore()
 defineProps({
     menus: {
         type: Array,
@@ -30,7 +30,7 @@ defineProps({
         default: '/Manage'
     }
 })
-const menuColor = computed(() => mgStore.getters['view/menuColor']);
+const menuColor = computed(() => mgStore.getters['view/menuColor'])
 </script>
 
 <style scoped lang="scss">

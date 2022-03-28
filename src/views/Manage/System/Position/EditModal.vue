@@ -12,34 +12,34 @@
 </template>
 
 <script setup>
-import {_api} from '@/libs/';
-import editRepositories from '@/repositories/editRepositories';
+import {_api} from '@/libs/'
+import editRepositories from '@/repositories/editRepositories'
 
-const emit = defineEmits(['update:formData', 'update:dialogFormVisible', 'onSubmit']);
+const emit = defineEmits(['update:formData', 'update:dialogFormVisible', 'onSubmit'])
 const props = defineProps({
     formData: {
         type: Object,
         default() {
-            return {};
+            return {}
         }
     },
     dialogFormVisible: {
         type: Boolean,
         default: false
     }
-});
+})
 
 const rules = reactive({
     code: [{required: true, trigger: 'blur', message: '职务编码不能为空'}],
     name: [{required: true, trigger: 'blur', message: '职务名称不能为空'}]
-});
+})
 
 const api = reactive({
     add: `${_api.system.position}/add`,
     edit: `${_api.system.position}/edit`
-});
+})
 
-const {formRef, loading, form, dialogVisible, handleCancel, handleConfirm} = editRepositories(emit, props, api);
+const {formRef, loading, form, dialogVisible, handleCancel, handleConfirm} = editRepositories(emit, props, api)
 </script>
 
 <style scoped>

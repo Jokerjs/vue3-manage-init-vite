@@ -11,14 +11,14 @@
                     <a-form-item style="margin-top: 40px" name="username">
                         <a-input v-model:value="form.username" placeholder="请输入用户名">
                             <template #prefix>
-                                <UserOutlined />
+                                <UserOutlined/>
                             </template>
                         </a-input>
                     </a-form-item>
                     <a-form-item name="password">
                         <a-input v-model:value="form.password" :type="passwordType" placeholder="请输入密码" @keyup.enter="handleLogin">
                             <template #prefix>
-                                <LockOutlined />
+                                <LockOutlined/>
                             </template>
                         </a-input>
                     </a-form-item>
@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
+import {UserOutlined, LockOutlined} from '@ant-design/icons-vue'
 import website from '@/config/website'
 
 const mgStore = useStore()
@@ -62,13 +62,13 @@ const rules = reactive({
     ]
 })
 
-async function handleLogin(){
+async function handleLogin() {
     loading.value = true
     try {
-        const values = await refForm.value.validateFields();
+        const values = await refForm.value.validateFields()
         await mgStore.dispatch('user/LoginByUsername', form)
         loading.value = false
-        mgRouter.push({ path: '/Manage' })
+        mgRouter.push({path: '/Manage'})
     } catch (errorInfo) {
         loading.value = false
     }

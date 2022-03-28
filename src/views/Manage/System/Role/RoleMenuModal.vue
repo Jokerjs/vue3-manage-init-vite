@@ -18,14 +18,14 @@
                             checkable
                             default-expand-all
                         >
-                            <template #title="{ slotTitle, key, data }">
+                            <template #title="{ slotTitle, data }">
                                 <div class="tree-btn">
                                     <div style="margin-right: 20px">{{ slotTitle }}</div>
                                     <div v-if="data.children && data.children.length > 0">
                                         <a-tooltip title="勾选子项">
                                             <a-button type="dashed" shape="circle" size="small" style="margin-right: 10px" @click.stop="checkAllNode(data, true)">
                                                 <template #icon>
-                                                    <check-outlined />
+                                                    <check-outlined/>
                                                 </template>
                                             </a-button>
                                         </a-tooltip>
@@ -49,61 +49,61 @@
 </template>
 
 <script setup>
-import {_http, _api} from '@/libs/';
-import editRepositories from '@/repositories/editRepositories';
-import {CheckOutlined, CloseOutlined} from '@ant-design/icons-vue';
-import toolUtils from '@/utils/toolUtils';
+import {_http, _api} from '@/libs/'
+import editRepositories from '@/repositories/editRepositories'
+import {CheckOutlined, CloseOutlined} from '@ant-design/icons-vue'
+import toolUtils from '@/utils/toolUtils'
 
-const emit = defineEmits(['update:formData', 'update:dialogFormVisible', 'onSubmit']);
+const emit = defineEmits(['update:formData', 'update:dialogFormVisible', 'onSubmit'])
 const props = defineProps({
     formData: {
         type: Object,
         default() {
-            return {};
+            return {}
         }
     },
     dialogFormVisible: {
         type: Boolean,
         default: false
     }
-});
+})
 
-const allTreeKeys = ref([]);
-const menus = ref([]);
-const defaultCheckedKeys = ref([]);
-const checkedKeys = ref([]);
+const allTreeKeys = ref([])
+const menus = ref([])
+const defaultCheckedKeys = ref([])
+const checkedKeys = ref([])
 
-const {formRef, loading, form, dialogVisible, handleCancel} = editRepositories(emit, props);
+const {formRef, loading, form, dialogVisible, handleCancel} = editRepositories(emit, props)
 
 watch(dialogVisible, (val) => {
-    if (val) getMenus();
-});
+    if (val) getMenus()
+})
 
 // 全选，反选
 function checkAll(all = []) {
-    checkedKeys.value = all;
+    checkedKeys.value = all
 }
 
 // 全选，反选子项
-function checkAllNode(node, check){
+function checkAllNode(node, check) {
     const type = check ? 'push' : 'remove'
     const isKeys = !check
     node.children.forEach(item => {
-        if(checkedKeys.value.checked){
-            if(checkedKeys.value.checked.includes(item.key) === isKeys) checkedKeys.value.checked[type](item.key)
-        }else {
-            if(checkedKeys.value.includes(item.key) === isKeys) checkedKeys.value[type](item.key)
+        if (checkedKeys.value.checked) {
+            if (checkedKeys.value.checked.includes(item.key) === isKeys) checkedKeys.value.checked[type](item.key)
+        } else {
+            if (checkedKeys.value.includes(item.key) === isKeys) checkedKeys.value[type](item.key)
         }
     })
 }
 
 async function getMenus() {
-    const {treeList, ids} = await _http.get(_api.system.queryTreeList);
-    const queryRolePermissions = await _http.get(_api.system.queryRolePermission, {params: {roleId: form.value.id}});
-    menus.value = treeList;
-    allTreeKeys.value = ids;
-    defaultCheckedKeys.value = toolUtils.deepcopy(queryRolePermissions);
-    checkedKeys.value = queryRolePermissions;
+    const {treeList, ids} = await _http.get(_api.system.queryTreeList)
+    const queryRolePermissions = await _http.get(_api.system.queryRolePermission, {params: {roleId: form.value.id}})
+    menus.value = treeList
+    allTreeKeys.value = ids
+    defaultCheckedKeys.value = toolUtils.deepcopy(queryRolePermissions)
+    checkedKeys.value = queryRolePermissions
 }
 
 async function handleConfirm() {
@@ -111,10 +111,10 @@ async function handleConfirm() {
         roleId: form.value.id,
         lastpermissionIds: defaultCheckedKeys.value.join(','),
         permissionIds: checkedKeys.value.checked ? checkedKeys.value.checked.join(',') : checkedKeys.value.join(',')
-    };
-    await _http.post(_api.system.saveRolePermission, data);
-    emit('onSubmit', data);
-    handleCancel();
+    }
+    await _http.post(_api.system.saveRolePermission, data)
+    emit('onSubmit', data)
+    handleCancel()
 }
 </script>
 

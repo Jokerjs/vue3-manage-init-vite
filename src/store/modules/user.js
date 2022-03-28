@@ -1,4 +1,4 @@
-import { _http, _api } from '@/libs/'
+import {_http, _api} from '@/libs/'
 import routerUtils from '@/utils/routerUtils'
 
 const user = {
@@ -19,13 +19,13 @@ const user = {
     },
     mutations: {
         // 是否登录
-        USER_LOGIN (state, payload) {
-            Object.assign(state, { accessToken: payload.token })
-            Object.assign(state, { user: payload.userInfo })
+        USER_LOGIN(state, payload) {
+            Object.assign(state, {accessToken: payload.token})
+            Object.assign(state, {user: payload.userInfo})
             localStorage.setItem('accessToken', payload.token)
             localStorage.setItem('userInfo', JSON.stringify(payload.userInfo))
         },
-        USER_INFO_DATA (state, payload) {
+        USER_INFO_DATA(state, payload) {
             const menus = payload.menu.find(item => item.path === '/Sleep').children
             const routers = routerUtils.createRouters(menus)
             Object.assign(state, {
@@ -33,9 +33,9 @@ const user = {
                 buttons: payload.auth,
                 menus: menus
             })
-            Object.assign(state, { login: true })
+            Object.assign(state, {login: true})
         },
-        USER_INFO_LOGINOUT (state) {
+        USER_INFO_LOGINOUT(state) {
             Object.assign(state, {
                 user: {},
                 login: false,
@@ -50,10 +50,10 @@ const user = {
     },
     actions: {
         // 根据用户名登录
-        LoginByUsername ({ commit }, params) {
+        LoginByUsername({commit}, params) {
             return _http.post(_api.login, params).then(res => commit('USER_LOGIN', res))
         },
-        GetUserInfo ({ commit }, params) {
+        GetUserInfo({commit}, params) {
             return _http.get(_api.getInfo, params).then(res => commit('USER_INFO_DATA', res || {}))
         }
     }

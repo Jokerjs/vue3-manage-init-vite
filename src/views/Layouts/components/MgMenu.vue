@@ -11,17 +11,17 @@
 </template>
 
 <script setup>
-import MgMenuItem from '@/views/Layouts/components/MgMenuItem.vue';
+import MgMenuItem from '@/views/Layouts/components/MgMenuItem.vue'
 
-const mgStore = useStore();
+const mgStore = useStore()
 const mgRouter = useRouter()
 
-const menuColor = computed(() => mgStore.getters['view/menuColor']);
-const vMenu = computed(() => mgStore.getters['view/vMenu']);
-const menus = computed(() => mgStore.getters['user/menus']);
+const menuColor = computed(() => mgStore.getters['view/menuColor'])
+const vMenu = computed(() => mgStore.getters['view/vMenu'])
+const menus = computed(() => mgStore.getters['user/menus'])
 
-function handleClick(e){
-    mgRouter.push({ path: e.key })
+function handleClick(e) {
+    mgRouter.push({path: e.key})
 }
 </script>
 

@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import {ref} from 'vue'
 
 const message = ref('找不到网页')
 </script>

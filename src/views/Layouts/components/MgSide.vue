@@ -9,14 +9,14 @@
 </template>
 
 <script setup>
-import website from '@/config/website.js';
-import MgMenu from '@/views/Layouts/components/MgMenu.vue';
+import website from '@/config/website.js'
+import MgMenu from '@/views/Layouts/components/MgMenu.vue'
 
-const title = ref(website.base_title);
-const mgStore = useStore();
-const menuColor = computed(() => mgStore.getters['view/menuColor']);
-const menuTextColor = computed(() => mgStore.getters['view/menuTextColor']);
-const isCollapse = computed(() => mgStore.getters['view/isCollapse']);
+const title = ref(website.base_title)
+const mgStore = useStore()
+const menuColor = computed(() => mgStore.getters['view/menuColor'])
+const menuTextColor = computed(() => mgStore.getters['view/menuTextColor'])
+const isCollapse = computed(() => mgStore.getters['view/isCollapse'])
 </script>
 
 <style scoped lang="scss">

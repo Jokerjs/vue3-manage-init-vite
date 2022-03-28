@@ -6,5 +6,5 @@ export default {
             const name = key.replace(/(\.\/|\.vue)/g, '')
             Vue.component(name, common[key].default)
         })
-    },
+    }
 }
