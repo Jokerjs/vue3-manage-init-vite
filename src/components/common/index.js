@@ -1,3 +1,4 @@
+import CScrollbar from '../CScrollbar'
 const common = import.meta.globEager('./**/*.vue')
 
 export default {
@@ -6,5 +7,6 @@ export default {
             const name = key.replace(/(\.\/|\.vue)/g, '')
             Vue.component(name, common[key].default)
         })
+        Vue.component('c-scrollbar', CScrollbar)
     }
 }

@@ -11,6 +11,7 @@ export default {
             const route = {
                 name: item.name,
                 path: item.name,
+                meta: item.meta,
                 component: component
             }
             if (item.children && item.children.length) {

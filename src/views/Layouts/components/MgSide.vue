@@ -3,9 +3,9 @@
         <img src="@/assets/logo.png" class="mg-menu-header-logo" v-if="!isCollapse"/>
         <span class="mg-menu-header-title" v-if="!isCollapse">{{ title }}</span>
     </a-layout-header>
-    <mg-Scroll :height="'calc(100% - 50px)'" :style="{background: menuColor}">
+    <c-scrollbar :height="'calc(100% - 50px)'" :style="{background: menuColor}">
         <mg-menu/>
-    </mg-Scroll>
+    </c-scrollbar>
 </template>
 
 <script setup>

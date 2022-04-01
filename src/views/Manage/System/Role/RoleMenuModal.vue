@@ -7,7 +7,7 @@
                         <a-button @click="checkAll(allTreeKeys)">全部勾选</a-button>
                         <a-button @click="checkAll()">取消全选</a-button>
                     </div>
-                    <mg-scroll height="calc(70vh - 240px)" class="role-tree">
+                    <c-scrollbar height="calc(70vh - 240px)" class="role-tree">
                         <a-tree
                             v-if="menus.length"
                             :fieldNames="{children:'children', title:'slotTitle', key:'key'}"
@@ -41,7 +41,7 @@
                             </template>
                         </a-tree>
                         <a-empty v-else/>
-                    </mg-scroll>
+                    </c-scrollbar>
                 </div>
             </a-form-item>
         </a-form>

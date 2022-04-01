@@ -5,10 +5,13 @@
         </a-layout-sider>
         <a-layout>
             <a-layout-header height="50px" :style="{background: `${headerColor}`}" class="mg-a-header">
-                <mg-header/>
+                <mg-header />
             </a-layout-header>
-            <a-layout-content class="mg-layout-content">
-                <router-view/>
+            <a-layout-content>
+                <mg-breadcrumb />
+                <div class="mg-layout-content">
+                    <router-view />
+                </div>
             </a-layout-content>
         </a-layout>
     </a-layout>
@@ -17,6 +20,7 @@
 <script setup>
 import MgSide from '@/views/Layouts/components/MgSide'
 import MgHeader from '@/views/Layouts/components/MgHeader'
+import MgBreadcrumb from '@/views/Layouts/components/MgBreadcrumb'
 
 const mgStore = useStore()
 
@@ -39,5 +43,6 @@ const headerColor = computed(() => mgStore.getters['view/headerColor'])
     position: relative;
     padding: 15px;
     overflow-y: auto;
+    height: calc(100% - 35px)
 }
 </style>

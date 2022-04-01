@@ -40,8 +40,7 @@ export default function tableRepositories(api) {
                 state.total = total
                 state.list = records
             } else {
-                const res = await _http.get(api.list, {params: query})
-                state.list = res
+                state.list = await _http.get(api.list, {params: query})
             }
             state.loading = false
         } catch (e) {

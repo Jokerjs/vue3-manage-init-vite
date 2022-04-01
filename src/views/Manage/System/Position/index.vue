@@ -36,7 +36,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup name="Position">
 import {_api} from '@/libs/'
 import tableRepositories from '@/repositories/tableRepositories'
 import EditModal from './EditModal'

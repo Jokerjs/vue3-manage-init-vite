@@ -35,7 +35,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup name="Role">
 import {_api} from '@/libs/'
 import tableRepositories from '@/repositories/tableRepositories'
 import toolUtils from '@/utils/toolUtils'
