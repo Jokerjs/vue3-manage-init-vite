@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "vite build",
+    "build:test": "vite build --mode test",
     "lint": "vue-cli-service lint",
     "dev": "vite",
     "preview": "vite preview"

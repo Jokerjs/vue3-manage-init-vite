@@ -18,6 +18,18 @@ export default defineConfig(({mode, command}) => {
                     drop_debugger: true,
                 },
             },
+            rollupOptions: {
+                output: { //静态资源分类打包
+                    chunkFileNames: 'static/js/[name]-[hash].js',
+                    entryFileNames: 'static/js/[name]-[hash].js',
+                    assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+                    manualChunks(id) { //静态资源分拆打包
+                        if (id.includes('node_modules')) {
+                            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+                        }
+                    }
+                }
+            }
         },
         resolve: {
             alias: {
@@ -26,7 +38,7 @@ export default defineConfig(({mode, command}) => {
                 // 设置别名
                 '@': path.resolve(__dirname, './src')
             },
-            extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'] // 导入时可以忽略后缀，建议写后缀
+            extensions: ['.js', '.json', '.vue'] // 导入时可以忽略后缀，建议写后缀
         },
         css: {
             preprocessorOptions: {

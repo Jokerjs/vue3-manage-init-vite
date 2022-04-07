@@ -1,5 +1,5 @@
 <template>
-    <button @click="open = true">Open Modal</button>
+    <a-button @click="open = true">Open Modal</a-button>
 
     <Teleport to="body">
         <div v-if="open" class="modal">

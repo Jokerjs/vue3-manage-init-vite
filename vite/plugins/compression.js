@@ -8,6 +8,7 @@ export default function createCompression(env) {
         if (compressList.includes('gzip')) {
             plugin.push(
                 compression({
+                    threshold: 10240,
                     ext: '.gz',
                     deleteOriginFile: false
                 })
