@@ -556,10 +556,10 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-ant-design-vue@^3.1.0-rc.5:
-  version "3.1.0-rc.5"
-  resolved "https://registry.npmmirror.com/ant-design-vue/-/ant-design-vue-3.1.0-rc.5.tgz#05d2d50cec5c73d978955ca7265e3f64bcfcfbf0"
-  integrity sha512-ntHI5KqHLd4L2oT+Ab+K3vehnDoo26QVWeq1ml7d13uoYS6fLXlnCnrYcHyPGh5fstoaAqFcYm3eh6khcetF/w==
+ant-design-vue@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.npmmirror.com/ant-design-vue/-/ant-design-vue-3.1.1.tgz#429368057bc445975b3e6ee498915d5bd66e0e87"
+  integrity sha512-QcnESmPllfyPy4SavOlf1jml/bdmzCIcCgYWRwl0WKG5jbuuOQ0vhgfUCC2rI6R+84gb/qf4/0qoZnWcEyQziA==
   dependencies:
     "@ant-design/colors" "^6.0.0"
     "@ant-design/icons-vue" "^6.1.0"
